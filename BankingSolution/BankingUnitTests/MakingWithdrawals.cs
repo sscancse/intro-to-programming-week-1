@@ -9,7 +9,7 @@ namespace Banking.UnitTests
 {
     public class MakingWithdrawals
     {
-        [Fact]
+        [Theory]
         [InlineData(100)]
         [InlineData(50)]
         public void WithdrawalDecreasesBalance(decimal withdrawal)

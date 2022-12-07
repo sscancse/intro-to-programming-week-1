@@ -2,10 +2,11 @@
 {
     public class BankAccount
     {
-        private decimal _balance;
+        private decimal _balance = 5000;
+
         public void Deposit(decimal deposit)
         {
-            throw new NotImplementedException();
+            _balance += deposit;
         }
 
         public decimal GetBalance()
@@ -15,7 +16,13 @@
 
         public void Withdraw(decimal withdrawal)
         {
-            _balance -= withdrawal;
+            if (withdrawal > _balance)
+            {
+                throw new OverdraftException();
+            } else
+            {
+                _balance -= withdrawal;
+            }
         }
     }
 }
