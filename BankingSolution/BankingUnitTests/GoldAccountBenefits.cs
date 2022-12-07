@@ -7,7 +7,8 @@ namespace Banking.UnitTests
         [Fact]
         public void GetBonusOnDeposit()
         {
-            var account = new BankAccount();
+            var stubbedBonusCalculator = new Mock<IBonusCalculator>();
+            var account = new BankAccount(stubbedBonusCalculator.Object);
             var openingBalance = account.GetBalance();
             var deposit = 100M;
             var expectedBonus = 10M;

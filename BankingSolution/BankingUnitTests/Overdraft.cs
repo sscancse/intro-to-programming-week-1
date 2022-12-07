@@ -1,4 +1,5 @@
 ﻿using Banking.Domain;
+using Banking.UnitTests.TestDoubles;
 
 namespace Banking.UnitTests
 {
@@ -7,7 +8,7 @@ namespace Banking.UnitTests
         [Fact] // Safety Net - an "Invariant"
         public void CanTakeAllTheMoney()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
 
             account.Withdraw(account.GetBalance());
 
@@ -17,7 +18,7 @@ namespace Banking.UnitTests
         [Fact]
         public void OverdraftDoesNotDecreaseBalance()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
             var openingBalance = account.GetBalance();
             var amountToWithDraw = openingBalance + .01M;
 
@@ -38,7 +39,7 @@ namespace Banking.UnitTests
         [Fact]
         public void OverdraftThrowsOverdraftException()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
 
             Assert.Throws<OverdraftException>(() =>
             {
