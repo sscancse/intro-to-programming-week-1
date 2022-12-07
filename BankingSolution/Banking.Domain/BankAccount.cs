@@ -4,7 +4,7 @@
     {
         private decimal _balance = 5000;
 
-        public void Deposit(decimal deposit)
+        public virtual void Deposit(decimal deposit)
         {
             _balance += deposit;
         }

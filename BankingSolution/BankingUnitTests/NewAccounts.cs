@@ -9,6 +9,7 @@ namespace Banking.UnitTests
 {
     public class NewAccounts
     {
+        [Fact]
         public void CorrectOpeningBalance()
         {
             // Write the code you wish you had

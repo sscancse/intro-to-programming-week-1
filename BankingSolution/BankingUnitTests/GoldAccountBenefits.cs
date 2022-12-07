@@ -7,7 +7,7 @@ namespace Banking.UnitTests
         [Fact]
         public void GetBonusOnDeposit()
         {
-            var account = new BankAccount();
+            var account = new GoldAccount();
             var openingBalance = account.GetBalance();
             var deposit = 100M;
             var expectedBonus = 10M;
