@@ -9,7 +9,7 @@ namespace Banking.UnitTests
         public void DepositIncreasesBalance()
         {
             // Given
-            var account = new BankAccount(new DummyBonusCalculator());
+            var account = new BankAccount(new DummyBonusCalculator(), new Mock<INotifyAccountRep>().Object);
             var openingBalance = account.GetBalance();
             var deposit = 100M;
             // When

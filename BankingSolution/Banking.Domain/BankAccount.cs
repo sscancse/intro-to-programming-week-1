@@ -3,11 +3,13 @@
     public class BankAccount
     {
         private readonly IBonusCalculator _calculator;
+        private readonly INotifyAccountRep _notifier;
         private decimal _balance = 5000;
 
-        public BankAccount(IBonusCalculator calculator)
+        public BankAccount(IBonusCalculator calculator, INotifyAccountRep notifier)
         {
             _calculator = calculator;
+            _notifier = notifier;
         }
 
         public void Deposit(decimal deposit)
@@ -25,6 +27,7 @@
         {
             if (withdrawal > _balance)
             {
+                _notifier.AttemptedOverdraftNotification(this, _balance, withdrawal);
                 throw new OverdraftException();
             }
             else

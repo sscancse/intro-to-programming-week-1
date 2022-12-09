@@ -15,7 +15,7 @@ namespace Banking.UnitTests
         [InlineData(50)]
         public void WithdrawalDecreasesBalance(decimal withdrawal)
         {
-            var account = new BankAccount(new DummyBonusCalculator());
+            var account = new BankAccount(new DummyBonusCalculator(), new Mock<INotifyAccountRep>().Object);
             var openingBalance = account.GetBalance();
             // When
             account.Withdraw(withdrawal);

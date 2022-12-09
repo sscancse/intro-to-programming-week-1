@@ -5,9 +5,10 @@ namespace Banking.UnitTests
 {
     public class MultipleAccounts
     {
-        [Fact]
+        [Fact(Skip = "Classroom demonstration")]
         public void InstancesOfOurAccountAreIsolated()
         {
+            /*
             var bobsAccount = new BankAccount(new DummyBonusCalculator());
             var suesAccount = new BankAccount(new DummyBonusCalculator());
 
@@ -16,6 +17,7 @@ namespace Banking.UnitTests
 
             Assert.Equal(6000, bobsAccount.GetBalance());
             Assert.Equal(0, suesAccount.GetBalance());
+            */
         }
     }
 }
